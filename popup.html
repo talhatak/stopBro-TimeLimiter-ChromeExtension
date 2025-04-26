@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Bro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      width: 320px;
+      height: 400px;
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(to bottom right, #fff, #f0f5ff);
+      color: #333;
+    }
+    
+    .container {
+      padding: 16px;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .header-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    
+    .header-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .header-subtitle {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #e1e4e8;
+      margin-bottom: 16px;
+    }
+    
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+    }
+    
+    .tab.active {
+      border-bottom-color: #3B82F6;
+      color: #3B82F6;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    input:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+    
+    .button {
+      background-color: #3B82F6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .button:hover {
+      background-color: #2563EB;
+    }
+    
+    .site-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .site-item {
+      background-color: #f0f5ff;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .site-url {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .site-time {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 4px;
+      background-color: #e1e4e8;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background-color: #3B82F6;
+      border-radius: 2px;
+    }
+    
+    .stats-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .stats-label {
+      font-size: 14px;
+    }
+    
+    .stats-value {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .insights-box {
+      background-color: #f0f5ff;
+      border-radius: 6px;
+      padding: 12px;
+      margin-top: 16px;
+    }
+    
+    .insights-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    
+    .insights-text {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      </div>
+      <div>
+        <h1 class="header-title">Stop Bro</h1>
+        <p class="header-subtitle">Manage your browsing time limits</p>
+      </div>
+    </div>
+    
+    <div class="tabs">
+      <div class="tab active" data-tab="settings">Settings</div>
+      <div class="tab" data-tab="stats">Stats</div>
+    </div>
+    
+    <div class="tab-content active" id="settings-tab">
+      <div class="form-group">
+        <label for="timeLimit">Default Time Limit (minutes)</label>
+        <input type="number" id="timeLimit" min="1" value="15">
+      </div>
+      
+      <div class="form-group">
+        <label>Active Websites</label>
+        <ul class="site-list" id="active-websites">
+          <!-- Sites will be populated by JavaScript -->
+        </ul>
+      </div>
+      
+      <div class="form-group">
+        <label for="newSite">Add Website</label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="newSite" placeholder="e.g. facebook.com">
+          <button class="button" id="addSite" style="white-space: nowrap;">Add</button>
+        </div>
+      </div>
+      
+      <button class="button" id="saveSettings" style="width: 100%;">Save Settings</button>
+    </div>
+    
+    <div class="tab-content" id="stats-tab">
+      <div class="form-group">
+        <h3 style="font-size: 14px; margin-top: 0;">Time Spent Today</h3>
+        <div id="stats-list">
+          <!-- Stats will be populated by JavaScript -->
+        </div>
+      </div>
+      
+      <div class="insights-box">
+        <h4 class="insights-title">Extension Insights</h4>
+        <p class="insights-text" id="insights-text">You've extended your time on distracting websites 0 times today.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
