@@ -46,6 +46,3 @@ Stop Bro is a simple but powerful Chrome extension that helps you stay focused o
 
 ## 📜 License
 This project is licensed under the MIT License.
-## 🔗 Links
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/talha-khan-80a04923a/)
-
