@@ -39,6 +39,10 @@ Stop Bro is a simple but powerful Chrome extension that helps you stay focused o
 - Chrome Extension APIs
 
 ## 📸 Screenshots
+![image_alt](https://github.com/talhatak/stopBro-TimeLimiter-ChromeExtension/blob/main/img/c1.PNG?raw=true)
+![image_alt](https://github.com/talhatak/stopBro-TimeLimiter-ChromeExtension/blob/main/img/c1.2.PNG?raw=true)
+![image_alt](https://github.com/talhatak/stopBro-TimeLimiter-ChromeExtension/blob/main/img/c1.3.PNG?raw=true)
+![image_alt](https://github.com/talhatak/stopBro-TimeLimiter-ChromeExtension/blob/main/img/c1.4.PNG?raw=true)
 
 ## 📜 License
 This project is licensed under the MIT License.
